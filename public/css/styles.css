@@ -522,6 +522,7 @@ footer {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
+    transform: translateY(-200px);
 }
 
 .feature-content {
@@ -534,7 +535,6 @@ footer {
 }
 
 .feature-with-image:hover .feature-img {
-    transform: scale(1.05);
 }
 
 .principle h3, .camp-features .feature h3 {
