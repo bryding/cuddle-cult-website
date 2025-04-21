@@ -6,6 +6,7 @@
     <title>Camp Cuddle Cult | Burning Man</title>
     <link rel="stylesheet" href="public/css/styles.css">
     <script src="public/js/main.js" defer></script>
+    <script src="public/js/calendar.js" defer></script>
 </head>
 <body>
     <header>
@@ -62,26 +63,12 @@
     <section class="events-preview">
         <div class="container">
             <h2>Featured Events</h2>
-            <div class="events-grid">
-                <div class="event">
-                    <div class="event-time">Monday • 2:00 PM</div>
-                    <h3>Group Cuddle Session</h3>
-                    <p>Join our guided cuddle session focused on connection and comfort.</p>
-                </div>
-                <div class="event">
-                    <div class="event-time">Wednesday • 8:00 PM</div>
-                    <h3>Fire & Light Show</h3>
-                    <p>Experience our mesmerizing fire dancers and LED performance.</p>
-                </div>
-                <div class="event">
-                    <div class="event-time">Friday • 10:00 PM</div>
-                    <h3>Cuddle Cult Dance Party</h3>
-                    <p>Dance the night away with our resident DJs and light installations.</p>
-                </div>
-                <div class="event">
-                    <div class="event-time">Sunday • 7:00 AM</div>
-                    <h3>Sunrise Meditation</h3>
-                    <p>Welcome the morning with guided meditation and gentle stretching.</p>
+            <div class="events-grid" id="featured-events">
+                <!-- Events will be dynamically loaded from Google Calendar -->
+                <div class="event loading-event">
+                    <div class="event-time">Loading events...</div>
+                    <h3>Upcoming Events</h3>
+                    <p>Our upcoming events are being loaded from our calendar. If you see this message, please wait a moment.</p>
                 </div>
             </div>
             <a href="events.html" class="btn btn-outline">See All Events</a>

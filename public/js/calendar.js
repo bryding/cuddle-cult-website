@@ -19,9 +19,11 @@ const DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'
  */
 document.addEventListener('DOMContentLoaded', () => {
     const calendarElement = document.getElementById('calendar-events');
-    if (!calendarElement) return; // Only run on pages with the calendar element
+    const featuredEventsElement = document.getElementById('featured-events');
     
-    loadGoogleCalendarAPI();
+    if (calendarElement || featuredEventsElement) {
+        loadGoogleCalendarAPI();
+    }
 });
 
 /**
@@ -43,18 +45,33 @@ function initializeCalendar() {
             apiKey: CONFIG.apiKey,
             discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest']
         }).then(() => {
-            fetchEvents();
+            const calendarElement = document.getElementById('calendar-events');
+            const featuredEventsElement = document.getElementById('featured-events');
+            
+            if (calendarElement) {
+                fetchEventsForCalendar();
+            }
+            
+            if (featuredEventsElement) {
+                fetchFeaturedEvents();
+            }
         }).catch(error => {
             console.error('Error initializing the Google Calendar API:', error);
             displayCalendarError('Could not load the Google Calendar API. Please check your internet connection and try again.');
+            
+            // Handle featured events error
+            const featuredEventsElement = document.getElementById('featured-events');
+            if (featuredEventsElement) {
+                displayFeaturedEventsError();
+            }
         });
     });
 }
 
 /**
- * Fetch events from Google Calendar
+ * Fetch events for the main calendar page
  */
-function fetchEvents() {
+function fetchEventsForCalendar() {
     // Calculate time range (1 week)
     const now = new Date();
     const oneWeekLater = new Date();
@@ -81,6 +98,40 @@ function fetchEvents() {
     }).catch(error => {
         console.error('Error fetching calendar events:', error);
         displayCalendarError('Could not load events from the calendar. Please check your calendar ID and API key.');
+    });
+}
+
+/**
+ * Fetch featured events for the homepage
+ */
+function fetchFeaturedEvents() {
+    // Calculate time range (1 month forward)
+    const now = new Date();
+    const oneMonthLater = new Date();
+    oneMonthLater.setMonth(now.getMonth() + 1);
+    
+    // Format dates for API request
+    const timeMin = now.toISOString();
+    const timeMax = oneMonthLater.toISOString();
+    
+    // Make the API request
+    gapi.client.calendar.events.list({
+        'calendarId': CONFIG.calendarId,
+        'timeMin': timeMin,
+        'timeMax': timeMax,
+        'singleEvents': true,
+        'orderBy': 'startTime',
+        'maxResults': 3  // Only get the next 3 events
+    }).then(response => {
+        const events = response.result.items;
+        if (events && events.length > 0) {
+            displayFeaturedEvents(events);
+        } else {
+            displayFeaturedEventsError();
+        }
+    }).catch(error => {
+        console.error('Error fetching featured events:', error);
+        displayFeaturedEventsError();
     });
 }
 
@@ -292,13 +343,61 @@ function displayCalendarError(message) {
             <p>${message}</p>
             <p>To set up calendar integration:</p>
             <ol>
-                <li>Edit js/calendar.js</li>
+                <li>Edit public/js/calendar.js</li>
                 <li>Replace YOUR_CALENDAR_ID with your Google Calendar ID</li>
                 <li>Replace YOUR_API_KEY with your Google API Key</li>
             </ol>
             <a href="https://developers.google.com/calendar/api/quickstart/js" target="_blank" class="btn btn-outline">
                 How to Setup Google Calendar API
             </a>
+        </div>
+    `;
+}
+
+/**
+ * Display featured events on the homepage
+ * @param {Array} events - Array of upcoming events from Google Calendar
+ */
+function displayFeaturedEvents(events) {
+    const featuredEventsContainer = document.getElementById('featured-events');
+    if (!featuredEventsContainer) return;
+    
+    // Clear existing content
+    featuredEventsContainer.innerHTML = '';
+    
+    // Create event elements for each event (maximum 3)
+    const eventsToShow = events.slice(0, 3);
+    
+    eventsToShow.forEach(event => {
+        const start = new Date(event.start.dateTime || event.start.date);
+        const formattedDay = start.toLocaleDateString('en-US', { weekday: 'long' });
+        const formattedTime = start.toLocaleTimeString('en-US', CONFIG.timeFormat);
+        
+        const eventElement = document.createElement('div');
+        eventElement.className = 'event';
+        
+        eventElement.innerHTML = `
+            <div class="event-time">${formattedDay} • ${formattedTime}</div>
+            <h3>${event.summary || 'Untitled Event'}</h3>
+            <p>${event.description || 'Join us for this exciting event!'}</p>
+        `;
+        
+        featuredEventsContainer.appendChild(eventElement);
+    });
+}
+
+/**
+ * Display error message when featured events can't be loaded
+ */
+function displayFeaturedEventsError() {
+    const featuredEventsContainer = document.getElementById('featured-events');
+    if (!featuredEventsContainer) return;
+    
+    // Clear existing content and show message
+    featuredEventsContainer.innerHTML = `
+        <div class="event no-events">
+            <h3>No upcoming events</h3>
+            <p>Check back later for our upcoming events or visit our events page.</p>
         </div>
     `;
 }
