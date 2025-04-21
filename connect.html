@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | Camp Cuddle Cult</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Camp Cuddle Cult</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="leaders.html">Camp Leaders</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="connect.html" class="active">Connect</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Connect With Us</h1>
+            <p>Join our community, ask questions, or get involved</p>
+        </div>
+    </section>
+
+    <section class="connect-grid">
+        <div class="container">
+            <div class="connect-options">
+                <div class="connect-option">
+                    <div class="connect-icon">
+                        <img src="images/icon-join.svg" alt="Join Icon" class="placeholder-image">
+                    </div>
+                    <h2>Join Our Camp</h2>
+                    <p>Interested in being part of Camp Cuddle Cult? We welcome burners who resonate with our values and want to contribute to our community.</p>
+                    <a href="#join-form" class="btn btn-outline">Apply to Join</a>
+                </div>
+
+                <div class="connect-option">
+                    <div class="connect-icon">
+                        <img src="images/icon-newsletter.svg" alt="Newsletter Icon" class="placeholder-image">
+                    </div>
+                    <h2>Newsletter</h2>
+                    <p>Stay updated with camp news, events, and preparation information. Our newsletter goes out monthly with more frequent updates as Burning Man approaches.</p>
+                    <a href="#newsletter-form" class="btn btn-outline">Subscribe</a>
+                </div>
+
+                <div class="connect-option">
+                    <div class="connect-icon">
+                        <img src="images/icon-social.svg" alt="Social Media Icon" class="placeholder-image">
+                    </div>
+                    <h2>Social Media</h2>
+                    <p>Follow us on social media for photos, updates, and to connect with our community year-round. Share your own Camp Cuddle Cult experiences using #CuddleCult.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ben.ryding.art/" class="social-link" aria-label="Instagram">📷 Instagram</a>
+                    </div>
+                </div>
+
+                <div class="connect-option">
+                    <div class="connect-icon">
+                        <img src="images/icon-contribute.svg" alt="Contribute Icon" class="placeholder-image">
+                    </div>
+                    <h2>Contribute</h2>
+                    <p>Have skills, resources, or ideas to share? We welcome contributions of all kinds, from workshop facilitation to infrastructure support and creative collaborations.</p>
+                    <a href="#contact-form" class="btn btn-outline">Share Your Ideas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="forms-section">
+        <div class="container">
+            <div class="forms-tabs">
+                <button class="form-tab active" data-form="join-form">Join Camp</button>
+                <button class="form-tab" data-form="newsletter-form">Newsletter</button>
+                <button class="form-tab" data-form="contact-form">Contact Us</button>
+            </div>
+
+            <div class="forms-container">
+                <form id="join-form" class="form active">
+                    <h2>Apply to Join Camp Cuddle Cult</h2>
+                    <p>Please fill out this form to express your interest in joining our camp for the next Burning Man. We'll contact you with more information.</p>
+                    
+                    <div class="form-group">
+                        <label for="join-name">Name *</label>
+                        <input type="text" id="join-name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="join-email">Email *</label>
+                        <input type="email" id="join-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="join-burns">Previous Burns</label>
+                        <select id="join-burns" name="burns">
+                            <option value="0">First Time</option>
+                            <option value="1-2">1-2 Burns</option>
+                            <option value="3-5">3-5 Burns</option>
+                            <option value="6+">6+ Burns</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="join-skills">Skills & Contributions</label>
+                        <textarea id="join-skills" name="skills" rows="4" placeholder="What skills, resources, or contributions would you like to bring to the camp?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="join-why">Why Cuddle Cult? *</label>
+                        <textarea id="join-why" name="why" rows="4" placeholder="Why are you interested in joining Camp Cuddle Cult specifically?" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="join-questions">Questions</label>
+                        <textarea id="join-questions" name="questions" rows="4" placeholder="Any questions for us?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit Application</button>
+                </form>
+
+                <form id="newsletter-form" class="form">
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <p>Stay updated with camp news, events, and preparation information.</p>
+                    
+                    <div class="form-group">
+                        <label for="newsletter-name">Name *</label>
+                        <input type="text" id="newsletter-name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newsletter-email">Email *</label>
+                        <input type="email" id="newsletter-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter-member" name="member">
+                        <label for="newsletter-member">I am a current or past camp member</label>
+                    </div>
+                    
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+
+                <form id="contact-form" class="form">
+                    <h2>Contact Us</h2>
+                    <p>Have questions, ideas, or just want to connect? Send us a message!</p>
+                    
+                    <div class="form-group">
+                        <label for="contact-name">Name *</label>
+                        <input type="text" id="contact-name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Email *</label>
+                        <input type="email" id="contact-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-subject">Subject *</label>
+                        <select id="contact-subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="question">General Question</option>
+                            <option value="contribution">Contribution Idea</option>
+                            <option value="event">Event Proposal</option>
+                            <option value="photo">Photo Submission</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message">Message *</label>
+                        <textarea id="contact-message" name="message" rows="6" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">How do I become a member of Camp Cuddle Cult?</button>
+                    <div class="accordion-content">
+                        <p>To become a member, fill out our application form above. We review applications based on our community needs, your alignment with our values, and your potential contributions. We typically respond within 2-3 weeks after applications close.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">Is there a camp fee, and what does it cover?</button>
+                    <div class="accordion-content">
+                        <p>Yes, we have a camp fee that covers shared infrastructure (shade structures, kitchen, showers, communal spaces), water, group meals, and camp activities. The exact amount varies each year based on our needs and is communicated during the application process.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">What are the expectations for camp members?</button>
+                    <div class="accordion-content">
+                        <p>Camp members are expected to participate in camp setup and breakdown, take shifts for camp duties (kitchen, greeting, cleaning), contribute to our community in ways aligned with their skills, and uphold our values of consent, inclusion, and participation.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">Can I visit your camp during Burning Man without being a member?</button>
+                    <div class="accordion-content">
+                        <p>Absolutely! Many of our events and spaces are open to all burners. Check our event board at the camp entrance for our daily schedule and which activities are open to visitors.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">How can I contribute if I can't attend Burning Man?</button>
+                    <div class="accordion-content">
+                        <p>We welcome remote contributions including fundraising support, art creation, online community participation, and pre-event logistics assistance. Contact us through the form above to discuss how you can contribute from afar.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">Where is Camp Cuddle Cult located at Burning Man?</button>
+                    <div class="accordion-content">
+                        <p>Our placement varies each year. Once we receive our official placement from Burning Man organization (usually in July), we'll share our coordinates via email to camp members and on our social media channels.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Camp Cuddle Cult</h3>
+                    <p>Burning Man • Black Rock City, NV</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="leaders.html">Camp Leaders</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">👤</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Camp Cuddle Cult. All rights reserved.</p>
+                <p>Created with ❤️ for the playa</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
