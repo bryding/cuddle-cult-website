@@ -12,6 +12,26 @@ This is a responsive website for "Camp Cuddle Cult" at Burning Man, built with p
 - Contact and application forms
 - Social media links
 
+## File Structure
+
+```
+/
+├── index.html             # Home page
+├── about.html             # About the camp
+├── leaders.html           # Camp leader profiles  
+├── gallery.html           # Photo gallery
+├── events.html            # Event schedule with calendar integration
+├── connect.html           # Contact forms
+├── public/                # Static assets
+│   ├── css/               # Stylesheets
+│   │   └── styles.css     
+│   ├── js/                # JavaScript files
+│   │   ├── main.js        # Main website functionality
+│   │   └── calendar.js    # Google Calendar integration
+│   └── images/            # Image directory (add your images here)
+└── .gitignore             # Git ignore file
+```
+
 ## Google Calendar Integration
 
 The events page includes Google Calendar integration. To set it up:
@@ -29,7 +49,7 @@ The events page includes Google Calendar integration. To set it up:
    - Enable the Google Calendar API
    - Create an API key with appropriate restrictions
 
-4. Update the configuration in `js/calendar.js`:
+4. Update the configuration in `public/js/calendar.js`:
    ```javascript
    const CONFIG = {
        calendarId: 'YOUR_CALENDAR_ID@group.calendar.google.com', // Replace with your calendar ID
@@ -39,24 +59,11 @@ The events page includes Google Calendar integration. To set it up:
    };
    ```
 
-## File Structure
-
-- `index.html` - Home page with camp introduction
-- `about.html` - About the camp, its history, and principles
-- `leaders.html` - Profiles of camp leaders
-- `gallery.html` - Photo gallery with filtering
-- `events.html` - Event schedule with Google Calendar integration
-- `connect.html` - Forms to connect, join, or contact
-- `css/styles.css` - All styles for the site
-- `js/main.js` - Main JavaScript functionality
-- `js/calendar.js` - Google Calendar integration
-- `images/` - Directory for images (placeholder images only)
-
 ## Customization
 
 ### Adding Real Images
 
-Replace the placeholder images in the `images/` directory with your actual images:
+Replace the placeholder images in the `public/images/` directory with your actual images:
 - `hero-bg.jpg` - Background image for the hero section
 - `camp-placeholder.jpg` - Image of your camp
 - `ben-placeholder.jpg` - Photo of Ben Ryding
