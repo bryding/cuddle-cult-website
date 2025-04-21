@@ -61,19 +61,6 @@ The events page includes Google Calendar integration. To set it up:
 
 ## Customization
 
-### Adding Real Images
-
-Replace the placeholder images in the `public/images/` directory with your actual images:
-- `hero-bg.jpg` - Background image for the hero section
-- `camp-placeholder.jpg` - Image of your camp
-- `ben-placeholder.jpg` - Photo of Ben Ryding
-- `serena-placeholder.jpg` - Photo of Serena Lipari
-- `james-placeholder.jpg` - Photo of James Jenkins
-- `brooke-placeholder.jpg` - Photo of Brooke Downer
-- `gallery-placeholder-1.jpg` through `gallery-placeholder-12.jpg` - Gallery images
-- `event-placeholder-1.jpg` through `event-placeholder-3.jpg` - Event images
-- `icon-join.svg`, `icon-newsletter.svg`, `icon-social.svg`, `icon-contribute.svg` - Icons for connect page
-
 ### Colors and Branding
 
 The site uses a color scheme inspired by Burning Man:
