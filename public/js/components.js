@@ -72,7 +72,7 @@ function renderFooter(footerElement) {
             <div class="footer-content">
                 <div class="footer-logo">
                     <h3>Camp Cuddle Cult</h3>
-                    <p>Burning Man • Black Rock City, NV</p>
+                    <p>Boulder, CO</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -84,14 +84,6 @@ function renderFooter(footerElement) {
                         <li><a href="events.html">Events</a></li>
                         <li><a href="connect.html">Connect</a></li>
                     </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Connect With Us</h4>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="Facebook">👤</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
