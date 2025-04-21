@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu');
-    const nav = document.querySelector('nav');
-
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-    }
+    // Mobile Navigation Toggle - we'll handle this with a delegated event listener
+    // since the mobile menu button is dynamically created in components.js
+    document.body.addEventListener('click', function(e) {
+        if (e.target.closest('.mobile-menu')) {
+            const mobileMenuBtn = e.target.closest('.mobile-menu');
+            const nav = document.querySelector('nav');
+            
+            if (mobileMenuBtn && nav) {
+                mobileMenuBtn.classList.toggle('active');
+                nav.classList.toggle('active');
+            }
+        }
+    });
 
     // Gallery Filter (if on gallery page)
     const filterButtons = document.querySelectorAll('.filter-btn');

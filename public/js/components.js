@@ -49,17 +49,6 @@ function renderNavigation(container) {
     
     // Replace container contents with navigation
     container.innerHTML = navHTML;
-    
-    // Re-attach mobile menu event listener
-    const mobileMenuBtn = container.querySelector('.mobile-menu');
-    const nav = container.querySelector('nav');
-    
-    if (mobileMenuBtn && nav) {
-        mobileMenuBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-    }
 }
 
 /**
