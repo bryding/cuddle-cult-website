@@ -181,12 +181,14 @@ nav a.active::after {
 
 /* Hero Section */
 .hero {
-    background: var(--gradient);
     color: white;
     text-align: center;
-    padding: 120px 0;
+    padding: 180px 0;
     position: relative;
     overflow: hidden;
+    background-image: url('../images/campCover.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .hero::before {
@@ -196,11 +198,8 @@ nav a.active::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.2;
-    mix-blend-mode: multiply;
+    background: rgba(0, 0, 0, 0.5);
+    /* Dark overlay to ensure text is readable */
 }
 
 .hero .container {
@@ -327,26 +326,44 @@ nav a.active::after {
 
 /* CTA Section */
 .cta {
-    background: var(--gradient);
+    background-image: url('../images/campCover.jpg');
+    background-size: cover;
+    background-position: center bottom;
     color: white;
     text-align: center;
     padding: 80px 0;
+    position: relative;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .cta h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .cta p {
     max-width: 700px;
     margin: 0 auto 30px;
-    opacity: 0.9;
+    position: relative;
+    z-index: 1;
 }
 
 .cta .btn {
     background: white;
     color: var(--primary);
+    position: relative;
+    z-index: 1;
 }
 
 .cta .btn:hover {
@@ -432,23 +449,38 @@ footer {
 
 /* Page Header */
 .page-header {
-    background: var(--gradient);
+    background-image: url('../images/campCover.jpg');
+    background-size: cover;
+    background-position: center;
     color: white;
     text-align: center;
-    padding: 60px 0;
+    padding: 80px 0;
     position: relative;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .page-header h1 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
 }
 
 .page-header p {
     max-width: 600px;
     margin: 0 auto;
-    opacity: 0.9;
+    position: relative;
+    z-index: 1;
 }
 
 /* About Page */
@@ -521,8 +553,6 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
-    transform: translateY(-200px);
 }
 
 .feature-content {
@@ -535,6 +565,7 @@ footer {
 }
 
 .feature-with-image:hover .feature-img {
+    transform: scale(1.05);
 }
 
 .principle h3, .camp-features .feature h3 {
