@@ -73,7 +73,6 @@ img {
 }
 
 .placeholder-image::after {
-    content: "📷 Image Placeholder";
     position: absolute;
     color: var(--dark);
     font-size: 1rem;
