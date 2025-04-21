@@ -224,7 +224,7 @@ nav a.active::after {
     padding: 180px 0;
     position: relative;
     overflow: hidden;
-    background-image: url('../images/ColorDancePlaya.jpg');
+    background-image: url('../images/ColorDancePlaya.webp');
     background-size: cover;
     background-position: center;
 }
@@ -1149,6 +1149,29 @@ footer::before {
 .form button {
     margin-top: 20px;
     width: 100%;
+}
+
+.form-success-message {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px var(--shadow);
+    padding: 40px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.form-success-message h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.form-success-message p {
+    margin-bottom: 15px;
+}
+
+.form-success-message .btn {
+    margin-top: 20px;
 }
 
 .faq {

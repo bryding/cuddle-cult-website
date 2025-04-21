@@ -120,11 +120,133 @@ document.addEventListener('DOMContentLoaded', function() {
         allForms.forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                // In a real implementation, you would handle form submission to a server here
-                alert('Thank you for your submission! This is a demo site, so no data has been sent.');
-                form.reset();
+                
+                const formId = form.id;
+                const formData = new FormData(form);
+                const formEntries = Object.fromEntries(formData.entries());
+                
+                // Handle email forms
+                if (formId === 'contact-form') {
+                    sendContactFormEmail(formEntries);
+                } else if (formId === 'join-form') {
+                    sendJoinFormEmail(formEntries);
+                } else {
+                    // For other forms - show a demo message
+                    alert('Thank you for your submission! This is a demo site, so data for this form has not been sent.');
+                    form.reset();
+                }
             });
         });
+    }
+    
+    // Function to send contact form email
+    function sendContactFormEmail(data) {
+        // Format the email subject and body
+        const subject = `Camp Cuddle Cult Contact: ${data.subject}`;
+        
+        // Create email body with nice formatting
+        let emailBody = `
+Name: ${data.name}
+Email: ${data.email}
+Subject: ${data.subject}
+Message:
+${data.message}
+        `;
+        
+        // Encode for mailto URL
+        const encodedSubject = encodeURIComponent(subject);
+        const encodedBody = encodeURIComponent(emailBody);
+        const emailAddress = 'ryding.ben@gmail.com';
+        
+        // Create mailto link
+        const mailtoLink = `mailto:${emailAddress}?subject=${encodedSubject}&body=${encodedBody}`;
+        
+        // Show success message 
+        const formContainer = document.querySelector('#contact-form');
+        
+        // Create success message element
+        const successMessage = document.createElement('div');
+        successMessage.className = 'form-success-message';
+        successMessage.innerHTML = `
+            <h3>Thanks for reaching out!</h3>
+            <p>Your email client will now open to send this message to our team.</p>
+            <p><strong>Important:</strong> Please click send in your email client to complete sending your message.</p>
+            <button class="btn btn-outline return-to-form">Return to Form</button>
+        `;
+        successMessage.style.textAlign = 'center';
+        successMessage.style.padding = '20px';
+        
+        // Hide the form and show the success message
+        formContainer.innerHTML = '';
+        formContainer.appendChild(successMessage);
+        
+        // Add event listener to return button
+        const returnButton = successMessage.querySelector('.return-to-form');
+        returnButton.addEventListener('click', function() {
+            location.reload();
+        });
+        
+        // Open mailto link in a new window/tab
+        window.open(mailtoLink, '_blank');
+    }
+    
+    // Function to send join form email
+    function sendJoinFormEmail(data) {
+        // Format the email subject and body
+        const subject = `Camp Cuddle Cult Application: ${data.name}`;
+        
+        // Create email body with nice formatting
+        let emailBody = `
+CAMP CUDDLE CULT APPLICATION
+
+Name: ${data.name}
+Email: ${data.email}
+Previous Burns: ${data.burns}
+
+Skills & Contributions:
+${data.skills || 'Not specified'}
+
+Why Camp Cuddle Cult:
+${data.why}
+
+Questions:
+${data.questions || 'None'}
+        `;
+        
+        // Encode for mailto URL
+        const encodedSubject = encodeURIComponent(subject);
+        const encodedBody = encodeURIComponent(emailBody);
+        const emailAddress = 'ryding.ben@gmail.com';
+        
+        // Create mailto link
+        const mailtoLink = `mailto:${emailAddress}?subject=${encodedSubject}&body=${encodedBody}`;
+        
+        // Show success message 
+        const formContainer = document.querySelector('#join-form');
+        
+        // Create success message element
+        const successMessage = document.createElement('div');
+        successMessage.className = 'form-success-message';
+        successMessage.innerHTML = `
+            <h3>Application Submitted!</h3>
+            <p>Thank you for your interest in joining Camp Cuddle Cult!</p>
+            <p>Your email client will now open to send your application to our team.</p>
+            <p><strong>Important:</strong> Please click send in your email client to complete your application.</p>
+            <button class="btn btn-outline return-to-form">Return to Form</button>
+        `;
+        
+        // Hide the form and show the success message
+        formContainer.innerHTML = '';
+        formContainer.appendChild(successMessage);
+        
+        // Add event listener to return button
+        const returnButton = successMessage.querySelector('.return-to-form');
+        returnButton.addEventListener('click', function() {
+            location.reload();
+        });
+        
+        // Open mailto link in a new window/tab
+        window.open(mailtoLink, '_blank');
     }
 
     // Scroll Animation for Page Links
