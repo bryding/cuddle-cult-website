@@ -10,7 +10,7 @@
     --light-gray: #e0e0e0;
     --shadow: rgba(0, 0, 0, 0.1);
     --glow: 0 0 10px rgba(255, 109, 16, 0.6);
-    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    --gradient: linear-gradient(135deg, #ff6d10, #9c27b0); /* Use hex values directly instead of variables */
     --dust-gradient: linear-gradient(to right, rgba(244, 231, 187, 0.1), rgba(244, 231, 187, 0.2), rgba(244, 231, 187, 0.1));
     --transition: all 0.3s ease;
     --radius: 8px;
@@ -30,9 +30,9 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
-    color: var(--dark);
-    background-color: var(--light);
-    background-image: var(--desert-texture);
+    color: #1a1a1a;
+    background-color: #f5f5f5;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADLSURBVGhD7dAxDsIwEETRuQnX5w6cCgoKkCiQIAUUnGWsaFfGRrETiwLvSV+KZ+RxEk9VcjczMzMzM9uTY/2cS57rOIuTONRxNos/tnCu9ZxE+qNxFg/xFkeBKi59vSv7QiDfF4HQ2W/Ct3gK9I6HQLzXvAmEO0L4FcK/EL6F8CuELA0hS0PI0hCyNIQsDSFLQ8jSELI0hCwNIUtDyNIQsjSELA0hS0PI0hCyNIQsDSFLQ8jSELI0hCwNIUtDyNL+G1K/mpmZmZnZzlTVB39pDCNI8qdeAAAAAElFTkSuQmCC');
     overflow-x: hidden;
 }
 
@@ -116,10 +116,10 @@ img {
 }
 
 .btn:hover {
-    background: var(--secondary);
+    background: #9c27b0; /* Use hex value directly instead of var(--secondary) */
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px var(--shadow), var(--glow);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 109, 16, 0.6);
 }
 
 .btn:hover:before {
@@ -149,13 +149,15 @@ img {
 }
 
 header {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 15px var(--shadow);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-bottom: 2px solid rgba(255, 109, 16, 0.2);
+    background-image: none;
 }
 
 header .container {
@@ -168,7 +170,7 @@ header .container {
 .logo h1 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary);
+    color: #ff6d10;
     margin: 0;
 }
 
@@ -178,13 +180,13 @@ nav ul {
 }
 
 nav a {
-    color: var(--dark);
+    color: #1a1a1a;
     font-weight: 500;
     position: relative;
 }
 
 nav a:hover, nav a.active {
-    color: var(--primary);
+    color: #ff6d10;
 }
 
 nav a.active::after {
@@ -194,9 +196,9 @@ nav a.active::after {
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--primary);
-    border-radius: var(--radius);
-    box-shadow: var(--glow);
+    background: #ff6d10; /* Use hex value directly instead of var(--primary) */
+    border-radius: 8px; /* Use value directly instead of var(--radius) */
+    box-shadow: 0 0 10px rgba(255, 109, 16, 0.6); /* Use value directly instead of var(--glow) */
 }
 
 .mobile-menu {
@@ -211,10 +213,10 @@ nav a.active::after {
     display: block;
     width: 25px;
     height: 3px;
-    background: var(--dark);
+    background: #1a1a1a;
     margin: 5px 0;
     border-radius: 3px;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 /* Hero Section */
@@ -291,14 +293,14 @@ nav a.active::after {
 
 .feature h3 {
     margin-bottom: 15px;
-    color: var(--primary);
+    color: #ff6d10;
     font-weight: 600;
 }
 
 /* Events Preview */
 .events-preview {
     padding: 80px 0;
-    background-color: var(--light);
+    background-color: #f5f5f5;
 }
 
 .events-preview h2 {
@@ -364,7 +366,7 @@ nav a.active::after {
 
 /* CTA Section */
 .cta {
-    background-image: url('../images/campCover.jpg');
+    background-image: url('../images/campCover.webp');
     background-size: cover;
     background-position: center bottom;
     color: white;
@@ -425,7 +427,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--accent2), var(--primary));
+    background: linear-gradient(90deg, #ff6d10, #9c27b0, #ffc107, #00e5ff, #ff6d10);
     background-size: 300% 100%;
     animation: footerGlow 10s linear infinite;
 }
@@ -506,7 +508,7 @@ footer::before {
 
 /* Page Header */
 .page-header {
-    background-image: url('../images/campCover.jpg');
+    background-image: url('../images/campCover.webp');
     background-size: cover;
     background-position: center;
     color: white;
@@ -544,6 +546,7 @@ footer::before {
 .about-content {
     padding: 80px 0;
     position: relative;
+    background-color: #f5f5f5;
 }
 
 .about-content::before {
@@ -553,7 +556,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: var(--dust-gradient);
+    background-image: linear-gradient(to right, rgba(244, 231, 187, 0.1), rgba(244, 231, 187, 0.2), rgba(244, 231, 187, 0.1));
     animation: dustFloat 30s ease-in-out infinite;
     pointer-events: none;
 }
@@ -575,7 +578,7 @@ footer::before {
 .about-text h2 {
     font-size: 2rem;
     margin-bottom: 25px;
-    color: var(--primary);
+    color: #ff6d10;
 }
 
 .about-text p {
@@ -590,7 +593,7 @@ footer::before {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 50px;
-    color: var(--primary);
+    color: #ff6d10;
 }
 
 .principles-grid, .features-list {
@@ -632,7 +635,7 @@ footer::before {
 
 .principle:hover, .camp-features .feature:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px var(--shadow), 0 0 15px rgba(156, 39, 176, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 0 15px rgba(156, 39, 176, 0.3);
 }
 
 .feature-with-image:hover .feature-img {
@@ -641,7 +644,7 @@ footer::before {
 
 .principle h3, .camp-features .feature h3 {
     margin-bottom: 15px;
-    color: var(--primary);
+    color: #ff6d10;
 }
 
 .participation {
@@ -666,6 +669,7 @@ footer::before {
 /* Leaders Page */
 .leaders {
     padding: 80px 0;
+    background-color: #f5f5f5;
 }
 
 .leader {
@@ -708,6 +712,7 @@ footer::before {
 /* Gallery Page */
 .gallery {
     padding: 80px 0;
+    background-color: #f5f5f5;
 }
 
 .gallery-filters {
@@ -794,6 +799,7 @@ footer::before {
 /* Events Page */
 .events-schedule {
     padding: 80px 0;
+    background-color: #f5f5f5;
 }
 
 .schedule-tabs {
@@ -872,9 +878,9 @@ footer::before {
     text-align: center;
     padding: 40px;
     background: white;
-    border-radius: var(--radius);
+    border-radius: 8px;
     font-style: italic;
-    color: var(--gray);
+    color: #757575;
 }
 
 /* Calendar integration styles */
@@ -883,13 +889,13 @@ footer::before {
     margin: 40px auto 0;
     padding: 30px;
     background: white;
-    border-radius: var(--radius);
-    box-shadow: 0 5px 15px var(--shadow);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .calendar-instructions h3 {
     margin-bottom: 15px;
-    color: var(--primary);
+    color: #ff6d10;
 }
 
 .calendar-instructions ol {
@@ -907,8 +913,8 @@ footer::before {
 
 .calendar-message {
     padding: 15px;
-    background-color: var(--light);
-    border-left: 4px solid var(--primary);
+    background-color: #f5f5f5;
+    border-left: 4px solid #ff6d10;
     margin: 20px 0;
 }
 
@@ -917,7 +923,7 @@ footer::before {
     background-color: #fff3e0;
     border-left: 4px solid #ff9800;
     margin: 20px 0;
-    border-radius: var(--radius);
+    border-radius: 8px;
 }
 
 .calendar-error ol {
@@ -935,14 +941,14 @@ footer::before {
 
 .special-events {
     padding: 80px 0;
-    background-color: var(--light);
+    background-color: #f5f5f5;
 }
 
 .special-events h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2rem;
-    color: var(--primary);
+    color: #ff6d10;
 }
 
 .section-intro {
@@ -992,6 +998,7 @@ footer::before {
 /* Connect Page */
 .connect-grid {
     padding: 80px 0;
+    background-color: #f5f5f5;
 }
 
 .connect-options {
@@ -1004,14 +1011,14 @@ footer::before {
     text-align: center;
     padding: 30px;
     background: white;
-    border-radius: var(--radius);
-    box-shadow: 0 5px 15px var(--shadow);
-    transition: var(--transition);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .connect-option:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px var(--shadow);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .connect-icon {
@@ -1022,7 +1029,7 @@ footer::before {
 
 .connect-option h2 {
     margin-bottom: 15px;
-    color: var(--primary);
+    color: #ff6d10;
     font-size: 1.5rem;
 }
 
@@ -1046,12 +1053,12 @@ footer::before {
 }
 
 .social-link:hover {
-    color: var(--primary);
+    color: #ff6d10;
 }
 
 .forms-section {
     padding: 50px 0 80px;
-    background-color: var(--light);
+    background-color: #f5f5f5;
 }
 
 .forms-tabs {
