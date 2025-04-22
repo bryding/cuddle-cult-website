@@ -30,19 +30,19 @@ const leaderData = [
     {
         name: "James",
         role: "Good Vibes Manager",
-        image: "public/images/james-placeholder.jpg",
+        image: "public/images/james.webp",
         bio: "Fusce fermentum lacus vitae felis cursus, vel malesuada eros finibus. Suspendisse potenti. Proin bibendum vestibulum ex, in hendrerit dui auctor nec."
     },
     {
         name: "Brooke",
         role: "Party Animal",
-        image: "public/images/brooke-placeholder.jpg",
+        image: "public/images/brooke.webp",
         bio: "Integer sit amet eleifend ligula. Cras bibendum magna eu tortor elementum, vel tempor purus rutrum. Praesent varius magna vel risus accumsan, id dignissim mi fermentum."
     },
     {
         name: "Adam",
         role: "Creator of Color Dance",
-        image: "public/images/adam-placeholder.jpg",
+        image: "public/images/adam.webp",
         bio: "Maecenas vel commodo ipsum. Vivamus vitae diam vel tellus ultrices egestas. Aenean consequat, purus quis lobortis hendrerit, justo urna porta tortor."
     }
 ];
