@@ -19,7 +19,7 @@ const leaderData = [
         name: "Ben",
         role: "Camp Lead",
         image: "public/images/ben.webp",
-        bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae risus in nisi consectetur varius. Donec semper consequat velit, at faucibus nisl volutpat ut."
+        bio: "I value openness, curiosity, and building community. Software developer by trade, indie game creator by passion. Boulder-based and proud father to a little boy."
     },
     {
         name: "Serena",
